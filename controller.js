@@ -17,7 +17,7 @@ const getUser = async (id) => {
   }
 };
 
-const createUser = async () => {
+const createRandomUser = async () => {
   const user = {
     name: faker.name.findName(),
     username: faker.internet.userName(),
@@ -26,6 +26,11 @@ const createUser = async () => {
   const response = await axios.post(`${BASE_URL}/users`, user);
   return response.data;
 };
+
+// const createUser = async (user) => {
+//   const response = await axios.post(`${BASE_URL}/users`, user);
+//   return response.data;
+// };
 
 const updateUser = async (id, data) => {
   try {
@@ -68,6 +73,7 @@ const createPost = async (userId) => {
 module.exports = {
   getUsers,
   getUser,
+  createRandomUser,
   createUser,
   updateUser,
   deleteUser,
